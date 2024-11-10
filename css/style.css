@@ -1,0 +1,259 @@
+:root{
+    --font: "Tiny5", sans-serif;
+    --font-size: 1rem;
+    --font-size-big: 1.25rem;
+    --font-color:rgb(13, 13, 13);
+    --border: 0.25rem;
+    --padding: 0.5rem;
+    --border-radius: 0px;
+    --img-width: 160px;
+    --background: rgb(13, 13, 13);
+    --background-content: white;
+    --background-input: lightgray;
+    --background-button: gray;
+    --background-button-border: rgb(109 109 109);
+    --background-button-border-active: rgb(53 53 53);
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--background);
+    width: 100dvw;
+    height: 100dvh;
+    display:grid;
+    justify-content: center;
+    align-content: center;
+
+    &>*{
+        grid-column: 1;
+        grid-row: 1;
+        transform: scale(.25);
+        opacity: 0;
+        transition: .5s;
+        &.active{
+            transform: scale(1);
+            opacity: 1;
+        }
+        &.hide{
+            display: hide;
+        }
+    }
+}
+
+*{
+    font-family: var(--font);
+    font-size: var(--font-size);
+    border: 0px;
+    outline: none;
+    cursor: url(/media/cursor.png) 0 0,auto;
+    color: var(--font-color);
+}
+
+input{
+    cursor: url(/media/cursor_sel.png) 0 0,auto;
+    
+    &:hover,&:focus{
+        box-shadow: inset 0px 0px 0px 2px var(--background-button-border);
+    }
+}
+
+button{
+    cursor: url(/media/pointer.png) 12 2,auto;
+    font-size: var(--font-size-big);
+    background-color: var(--background-button);
+    border:1px solid var(--background-button-border);
+    box-shadow: 0px 1px 0px 2px var(--background-button-border);
+    position:relative;
+    
+    &:hover{
+        box-shadow: 0px 2px 0px 2px var(--background-button-border);
+        top:-1px;
+    }
+    &:active{
+        box-shadow: 0px -1px 0px 2px var(--background-button-border-active);
+        top:2px;
+    }
+}
+
+#containerForm{
+    background: var(--background-input);
+    padding: var(--border);
+    border-radius: var(--border-radius);
+    
+    #giftForm{
+        #contentForm{
+            padding: var(--padding);
+            width: min-content;
+            display: grid;
+            gap: var(--padding);
+            margin: auto;
+            background-color: var(--background-content);
+            border-radius: var(--border-radius);
+            
+            .input{
+                display: grid;
+                grid-column: 1;
+                align-content: center;
+                justify-items: center;
+                font-size: var(--font-size-big);
+                input{
+                    padding: .25rem;
+                    background-color: var(--background-input);
+                }
+            }
+            .portrait{
+                width: var(--img-width);
+                aspect-ratio: 2/3;
+                grid-column: 2;
+                grid-row: 1/5;
+                display: grid;
+                align-content: stretch;
+                justify-content: space-evenly;
+                background-color: var(--background-input);
+                justify-items: center;
+                align-items: stretch;
+                &>*{
+                    grid-column:1;
+                    grid-row:1;
+                }
+                ul{
+                    width: var(--img-width);
+                    aspect-ratio: 2/3;
+                    display: none;
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    background: var(--background-input);
+                    overflow: auto;
+                    &.active{
+                        display: block;
+                    }
+                    li{
+                        margin: var(--padding);
+                        button{
+                            text-align: left;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                img{
+                    width: var(--img-width);
+                    aspect-ratio: 2/3;
+                    font-size: var(--font-size-big);
+                    object-fit: cover;
+                    
+
+                    &.no_portrait{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#containerGift{
+    
+    #gift{
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        justify-items: center;
+        align-items: stretch;
+        
+        &>*{
+            grid-column: 1;
+            grid-row: 1;
+        }
+        *{
+            transition:.25s;
+            
+            &#content_gift{
+                opacity:0;
+                color:white;
+                transform:scale(.25);
+                width:160px;
+                display:grid;
+                text-align:center;
+                background-color:white;
+                aspect-ratio:2/3;
+
+                &>*{
+                    grid-column:1;
+                    grid-row: 1/3;
+                    width:100%;
+                }
+
+                #image_gift{
+                    object-fit: cover;
+                    height: 100%;
+                }
+                
+                #name_gift{
+                    font-size:var(--font-size-big);
+                }
+
+                #key_gift{
+                    grid-row: 2;
+                    background-color:white;
+                    text-align:center;
+                }
+            }
+        }
+        &:hover{
+            
+            *{
+                cursor: url(/media/pointer.png) 12 2,auto;
+                &#svg_tie{
+                    path:not(:first-child,:nth-child(2)){
+                        transform: scale(.75) translate(82px, 23px);
+                    }
+                    path:first-child{
+                        transform: scale(1.25) translate(-64px, -12px);
+                    }
+                } 
+            }
+        }
+
+        &.open{
+            *{
+                transition:1s;
+                pointer-events:none;
+                &#svg_tie path,&#svg_attachment polygon{
+                    transform: scale(1.75) translate(-120px, -80px) !important;
+                    opacity:0;
+                }
+                &#svg_cover{
+                    transition-delay:.25s;
+                    transform:rotate(45deg)translate(-10px, -120px);
+                    opacity:0;
+                }
+                
+                &#svg_gift_atras{
+                    transition-delay:.75s;
+                    transform:rotate(-45deg)translate(-80px, -200px);
+                    opacity:0;
+                }
+                &#svg_gift_delante{
+                    transition-delay:.75s;
+                    transform:rotate(45deg)translate(80px, -200px);
+                    opacity:0;
+                }
+                &#content_gift{
+                    transition:2s, box-shadow .25s 0s;
+                    transition-delay:1s, box-shadow 0s;
+                    opacity:1;
+                    transform:scale(1);
+                    pointer-events:all;
+
+                    &:hover{
+                        box-shadow:0px 0px 1rem 0px yellow;
+                    }
+                }
+            }
+        }
+    }
+}
