@@ -70,10 +70,11 @@ function update_image(){
 }
 
 function search_games(){
+	const Debug = false
 	
 	const ElementSearch = document.querySelector("#name")
 	const ElementSearchGames = document.querySelector("#search_game")
-	const UrlAPI = `${_CORS_ANYWHERE_}https://www.giantbomb.com/api/search/?api_key=${_GIANT_KEY_}&format=json&field_list=name,guid,image&resources=game&query=${ElementSearch.value}`
+	const UrlAPI = `${Debug?_CORS_ANYWHERE_:""}https://www.giantbomb.com/api/search/?api_key=${_GIANT_KEY_}&format=json&field_list=name,guid,image&resources=game&query=${ElementSearch.value}`
 	
 	console.log(UrlAPI)
 
