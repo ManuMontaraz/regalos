@@ -1,25 +1,30 @@
+<?php
+	header('Access-Control-Allow-Origin: *');
+?>
 <!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>🎁 REGALITOS 🎁</title>
-		<!-- <link rel="icon" href="./img/logo.png"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎁</text></svg>">
+		<title>REGALITOS</title>
 		<!--ONLINE-->
 		<!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
-		
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
-
+		
 		<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --> <!-- https://jquery.com/ -->
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> --> <!-- https://jqueryui.com/ -->
 
 		<!--FIN ONLINE-->
+		
 		<!--LOCAL-->
 		
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="css/style.css">
 		
-		<script src="./js/main.js"></script>
+		<script src="js/main.js"></script>
 		
 		<!--FIN LOCAL-->
 	</head>
@@ -29,7 +34,7 @@
 				<div id="contentForm">
 					
 					<div class="portrait">
-						<img id="image_game" src="" onerror="this.src='';this.classList.add('no_portrait')">
+						<img id="image_game" src="" onerror="error_update_image(this)">
 						<ul id="search_game"></ul>
 					</div>
 
@@ -60,9 +65,9 @@
 					<polygon style="fill: var(--color-gift); stroke: rgb(0, 0, 0);" points="33.99 438.47 133.727 389.514 133.897 51.342 33.877 100.617"/>
 				</svg>
 				<div id="content_gift">
-					<p id="name_gift">Halo Infinite</p>
-					<img id="image_gift" src="https://www.giantbomb.com/a/uploads/scale_small/0/1992/3225194-edifgmywoaakax_.jpeg">
-					<p id="key_gift">prueba-prueba-prueba</p>
+					<p id="name_gift">NONAME</p>
+					<img id="image_gift" src="">
+					<p id="key_gift">nokey</p>
 				</div>
 				<svg id="svg_gift_delante" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
 					<rect x="33.877" y="100.537" width="337.973" height="337.973" style="fill: var(--color-gift); stroke: rgb(0, 0, 0);"/>

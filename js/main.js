@@ -30,7 +30,7 @@ function set_game(){
 
 	const Searches = get_search()
 
-	if(Searches.name)ElementImage.textContent = Searches.name
+	if(Searches.name)ElementName.textContent = Searches.name
 	if(Searches.image)ElementImage.src = Searches.image
 	if(Searches.key)ElementKey.textContent = Searches.key
 	
@@ -69,6 +69,10 @@ function update_image(){
 	}
 }
 
+function error_update_image(element){
+	element.classList.add('no_portrait')
+}
+
 function search_games(){
 	const Debug = false
 	
@@ -84,10 +88,10 @@ function search_games(){
 		fetch(UrlAPI, {
 			method: 'GET',
 			headers: new Headers({
-				'Content-Type': 'application/json',
+				'Content-Type': 'application/javascrip',
 				'Access-Control-Allow-Origin': '*',
 				'User-Agent': "Regalitos APP"
-			}),
+			})
 		})
 		.then(resp=>resp.json())
 		.then(jsonGames=>{
@@ -159,63 +163,6 @@ function open_gift(){
 			AudioAplauso.play()
 		},2000)
 	}
-}
-
-function inicio(){
-	var regalo = document.getElementById("regalo").children[0];
-	var enviarCodigo = document.getElementById("enviarCodigo");
-	var formularioCodigo = document.getElementById("formularioCodigo");
-	var codigo = "PRUEBA-PRUEBA-PRUEBA";
-	var audioTrompeta = new Audio('./media/trompetita.m4a');
-	var audioAplauso = new Audio('./media/aplauso.m4a');
-	
-	/*$.ajax({
-		url : "./codigo.txt",
-		dataType: "text",
-		success : function (data) {
-			codigo = data;
-		}
-	});*/
-	
-	if (document.location.search == ""){
-		formularioCodigo.style.display="block";
-		regalo.parentElement.style.display="none";
-	} else {
-		codigo = document.location.search.split("?").toString().replace(",","").split("&")[0];
-		codigo = codigo.split("=")[1].toString();
-		//console.log(codigo);
-		//codigo = cifraCodigo(codigo);
-		//console.log(codigo);
-		codigo = descifraCodigo(codigo);
-		//console.log(codigo);
-	}
-	
-	enviarCodigo.addEventListener('click', function(){
-		console.log("a");
-		document.getElementById("codigo").value = cifraCodigo(document.getElementById("codigo").value);
-		document.forms["formularioCodigo"].submit();
-	});
-	
-	regalo.addEventListener('click', function(){
-		if (regalo.children[0].style.opacity == "0") {
-			navigator.clipboard.writeText(codigo);
-			if (regalo.parentElement.children.length <= 1){
-				regalo.insertAdjacentHTML('afterend', '<div class="codigo">'+codigo+'</div><a href="https://store.steampowered.com/account/registerkey?key='+codigo+'" target="_blank" class="codigo">CANJEAR EN STEAM</a>');
-				setTimeout(function(){
-					alert("SE HA COPIADO ALGO EN EL PORTAPAPELES");
-				}, 300);
-			}else{
-				alert("SE HA COPIADO EL CÓDIGO EN EL PORTAPAPELES");
-			}
-		}else{
-			regalo.children[0].style.opacity = "0";
-			audioTrompeta.play();
-			navigator.clipboard.writeText(codigo);
-			setTimeout(function(){
-				audioAplauso.play(); 
-			}, 1500);
-		}
-	});
 }
 
 function cifraCodigo(elCodigo){

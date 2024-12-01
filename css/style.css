@@ -36,7 +36,7 @@ body{
             opacity: 1;
         }
         &.hide{
-            display: hide;
+            display: none;
         }
     }
 }
@@ -46,12 +46,12 @@ body{
     font-size: var(--font-size);
     border: 0px;
     outline: none;
-    cursor: url(/media/cursor.png) 0 0,auto;
+    cursor: url(../media/cursor.png) 0 0,auto;
     color: var(--font-color);
 }
 
 input{
-    cursor: url(/media/cursor_sel.png) 0 0,auto;
+    cursor: url(../media/cursor_sel.png) 0 0,auto;
     
     &:hover,&:focus{
         box-shadow: inset 0px 0px 0px 2px var(--background-button-border);
@@ -59,7 +59,7 @@ input{
 }
 
 button{
-    cursor: url(/media/pointer.png) 12 2,auto;
+    cursor: url(../media/pointer.png) 12 2,auto;
     font-size: var(--font-size-big);
     background-color: var(--background-button);
     border:1px solid var(--background-button-border);
@@ -206,7 +206,7 @@ button{
         &:hover{
             
             *{
-                cursor: url(/media/pointer.png) 12 2,auto;
+                cursor: url(../media/pointer.png) 12 2,auto;
                 &#svg_tie{
                     path:not(:first-child,:nth-child(2)){
                         transform: scale(.75) translate(82px, 23px);
