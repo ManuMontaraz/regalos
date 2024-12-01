@@ -1,6 +1,6 @@
 :root{
-    --font: "Tiny5", sans-serif;
-    --font-size: 1rem;
+    --font: "Pixel", sans-serif;
+    --font-size: 0.75rem;
     --font-size-big: 1.25rem;
     --font-color:rgb(13, 13, 13);
     --border: 0.25rem;
@@ -13,6 +13,11 @@
     --background-button: gray;
     --background-button-border: rgb(109 109 109);
     --background-button-border-active: rgb(53 53 53);
+}
+
+@font-face {
+    font-family: "Pixel";
+    src: url(little-pixel.ttf) format("truetype");
 }
 
 body{
@@ -35,7 +40,7 @@ body{
             transform: scale(1);
             opacity: 1;
         }
-        &.hide{
+        &.hide,img[src=""]{
             display: none;
         }
     }
@@ -135,7 +140,7 @@ button{
                         margin: var(--padding);
                         button{
                             text-align: left;
-                            font-size: 1rem;
+                            font-size: var(--font-size);
                         }
                     }
                 }
@@ -144,11 +149,6 @@ button{
                     aspect-ratio: 2/3;
                     font-size: var(--font-size-big);
                     object-fit: cover;
-                    
-
-                    &.no_portrait{
-                        display: none;
-                    }
                 }
             }
         }
@@ -200,6 +200,7 @@ button{
                     grid-row: 2;
                     background-color:white;
                     text-align:center;
+                    height: max-content;
                 }
             }
         }

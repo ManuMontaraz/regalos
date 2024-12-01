@@ -2,7 +2,6 @@ const _GIANT_KEY_ = "fe525390f067e9ff705c8bec5205978f07110195"
 const _CORS_ANYWHERE_ = "https://cors-anywhere.herokuapp.com/";
 
 document.addEventListener("DOMContentLoaded", () => {
-	//inicio();
 	init()
 })
 
@@ -56,7 +55,6 @@ function update_image(){
 	const ElementImage = document.querySelector("#image_game")
 	const ElementUrlImage = document.querySelector("#image")
 
-	ElementImage.classList.remove("no_portrait")
 	try{
 		ElementImage.src = ElementUrlImage.value
 		const ElementSearchGame = document.querySelector("#search_game")
@@ -65,12 +63,7 @@ function update_image(){
 	}
 	catch(error){
 		alert(error)
-		ElementImage.classList.add("no_portrait")
 	}
-}
-
-function error_update_image(element){
-	element.classList.add('no_portrait')
 }
 
 function search_games(){
