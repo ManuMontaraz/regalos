@@ -88,9 +88,9 @@ function search_games(){
 		fetch(UrlAPI, {
 			method: 'GET',
 			headers: new Headers({
-				'Content-Type': 'application/javascrip',
+				'Content-Type': 'application/json',
 				'Access-Control-Allow-Origin': '*',
-				'User-Agent': "Regalitos APP"
+				'User-Agent': "RegalitosAPP"
 			})
 		})
 		.then(resp=>resp.json())
@@ -109,7 +109,7 @@ function search_games(){
 
 			ElementSearchGames.classList.add("active")
 		})
-		.catch(error=>console.error(error))
+		//.catch(error=>console.error(error))
 	}else{
 		ElementSearchGames.classList.remove("active")
 	}
