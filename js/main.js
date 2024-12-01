@@ -74,7 +74,7 @@ function error_update_image(element){
 }
 
 function search_games(){
-	const Debug = false
+	const Debug = true
 	
 	const ElementSearch = document.querySelector("#name")
 	const ElementSearchGames = document.querySelector("#search_game")
@@ -84,18 +84,17 @@ function search_games(){
 
 	const Search = ElementSearch.value
 	if(Search){
-		
 		fetch(UrlAPI, {
 			method: 'GET',
 			headers: new Headers({
 				'Content-Type': 'application/json',
-				'Access-Control-Allow-Origin': '*',
 				'User-Agent': "RegalitosAPP"
 			})
 		})
 		.then(resp=>resp.json())
 		.then(jsonGames=>{
-			console.log(jsonGames.results)
+			console.log("jsonGames",jsonGames)
+			console.log("jsonGames.results",jsonGames.results)
 			const Result = jsonGames.results
 			//jsonGames.results
 			let html = ""
@@ -109,7 +108,6 @@ function search_games(){
 
 			ElementSearchGames.classList.add("active")
 		})
-		//.catch(error=>console.error(error))
 	}else{
 		ElementSearchGames.classList.remove("active")
 	}
